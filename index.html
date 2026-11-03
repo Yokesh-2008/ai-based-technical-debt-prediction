@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Technical Debt Prediction</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header><div class="brand">⚙ TechDebt AI</div><span>Code quality • Risk analysis • Refactoring insights</span></header>
+<main>
+<section class="hero">
+  <p class="eyebrow">SOFTWARE MAINTAINABILITY ANALYZER</p>
+  <h1>Predict technical debt<br><em>before it slows you down.</em></h1>
+  <p class="sub">Upload a ZIP of a Python project to inspect complexity, duplication, code smells and file-level risk.</p>
+  <form id="uploadForm">
+    <label class="drop" for="project"><strong>Choose project ZIP</strong><span id="filename">Python repository packaged as .zip</span></label>
+    <input id="project" name="project" type="file" accept=".zip" required>
+    <button id="submitBtn" type="submit">Analyze repository →</button>
+  </form>
+  <p class="small">Files are analyzed temporarily and are not saved by this demo.</p>
+</section>
+<section id="error" class="error hidden"></section>
+<section id="results" class="hidden">
+  <div class="section-head"><div><p class="eyebrow">ANALYSIS OVERVIEW</p><h2>Project health</h2></div><button id="download" class="secondary">Export JSON ↓</button></div>
+  <div class="cards">
+    <article><span>Files scanned</span><strong id="files">0</strong></article>
+    <article><span>Average risk</span><strong id="avg">0</strong></article>
+    <article><span>High-risk files</span><strong id="high">0</strong></article>
+    <article><span>Total lines</span><strong id="lines">0</strong></article>
+  </div>
+  <div class="section-head"><div><p class="eyebrow">PRIORITIZED COMPONENTS</p><h2>File-level findings</h2></div></div>
+  <div class="table-wrap"><table><thead><tr><th>File</th><th>Risk</th><th>Complexity</th><th>Lines</th><th>Severity</th></tr></thead><tbody id="rows"></tbody></table></div>
+  <div id="details" class="details"></div>
+  <p id="notice" class="notice"></p>
+</section>
+</main>
+<footer>AI-Based Technical Debt Prediction • Academic prototype</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
